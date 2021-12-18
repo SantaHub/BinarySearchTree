@@ -3,20 +3,24 @@ public class BSTDoublyLinkedList {
     DLLNode bst_root = null;
 
     //search
-    private boolean search(int data ){
+    public boolean search(int data ){
         DLLNode node = bst_root;
         boolean found = false;
         while(node !=null){
             if(node.data == data){
                 found = true;
                 break;
+            } else if (data >= node.data ){
+                node  = node.right;
+            } else if (data < node.data) {
+                node = node.left;
             }
         }
         return found;
     }
 
     //insert
-    private void insert(int data){
+    public void insert(int data){
         DLLNode newNode = new DLLNode(data);
         DLLNode node = bst_root;
         DLLNode insertNode = bst_root;
@@ -29,7 +33,10 @@ public class BSTDoublyLinkedList {
                 node = node.left;
             }
         }
-        if(data >= insertNode.data){
+        if(bst_root == null) {
+            bst_root = newNode;
+        }
+        else if(data >= insertNode.data){
             insertNode.right = newNode;
         } else {
             insertNode.left = newNode;
@@ -39,7 +46,7 @@ public class BSTDoublyLinkedList {
 
     //remove
 
-    private void remove(int data){
+    public void remove(int data){
         DLLNode node = bst_root;
         DLLNode prevNode = null;
         while(node != null) {
@@ -62,17 +69,41 @@ public class BSTDoublyLinkedList {
         }
     }
     //clear
-    private void clear(){
+    public void clear(){
         bst_root = null;
     }
 
     //inOrder
     // LeRoRi
-
+    public void inOrder(DLLNode rootNode){
+        if(rootNode == null) {return;}
+        inOrder(rootNode.left);
+        System.out.print(rootNode.data);
+        inOrder(rootNode.right);
+    }
 
 
     //PreOrder
+    //RoLeRi
+    public void preOrder(DLLNode rootNode){
+        if(rootNode == null) {return;}
+        System.out.print(rootNode.data);
+        inOrder(rootNode.left);
+        inOrder(rootNode.right);
+    }
+
     //postOrder
+    //LeRiRo
+    public void postOrder(DLLNode rootNode){
+        if(rootNode == null) {return;}
+        inOrder(rootNode.left);
+        inOrder(rootNode.right);
+        System.out.print(rootNode.data);
+    }
+
     //toString
 
+    public DLLNode getBst_root(){
+        return bst_root;
+    }
 }
