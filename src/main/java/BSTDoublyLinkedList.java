@@ -46,7 +46,7 @@ public class BSTDoublyLinkedList {
 
     //remove
 
-    public void remove(int data){
+    public int remove(int data){
         DLLNode node = bst_root;
         DLLNode prevNode = null;
         while(node != null) {
@@ -67,6 +67,7 @@ public class BSTDoublyLinkedList {
                 prevNode.right = node.left;
             }
         }
+        return data;
     }
     //clear
     public void clear(){
@@ -102,6 +103,17 @@ public class BSTDoublyLinkedList {
     }
 
     //toString
+    public String toString(){
+        return getChildData(bst_root);
+    }
+
+    private String getChildData(DLLNode node){
+        String data = "";
+        if(node != null ) {
+            data += getChildData(node.left) + " " + node.data + " " + getChildData(node.right);
+        }
+        return data;
+    }
 
     public DLLNode getBst_root(){
         return bst_root;

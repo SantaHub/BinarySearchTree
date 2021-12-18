@@ -21,9 +21,10 @@ public class BSTArray_test {
 
         System.out.println("4 is present in the BST : " +  bst.search(4) );
         System.out.println("1 is present in the BST : " +  bst.search(1) );
+        System.out.println("To String : "+ bst);
 
         System.out.println("Remove last element : " +  bst.remove() );
-        System.out.println("To String : "+ bst.toString());
+        System.out.println("To String : "+ bst);
 
         System.out.println("\n Printing Inorder");
         bst.inOrderView(bst.getBstArray(), 0);
