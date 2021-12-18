@@ -13,9 +13,17 @@ public class BSTArray_test {
         bstArray.insert(2);
         bstArray.insert(3);
         bstArray.insert(7);
-        for (int i : (bstArray.getBstArray())) {
-            System.out.print(i);
-        }
+        bstArray.insert(8);
+//
+//        for (int i : (bstArray.getBstArray())) {
+//            System.out.print(i);
+//        }
+
+        System.out.println("4 is present in the BST : " +  bstArray.search(4) );
+        System.out.println("1 is present in the BST : " +  bstArray.search(1) );
+
+        System.out.println("Remove last element : " +  bstArray.remove() );
+        System.out.println("To String : "+ bstArray.toString());
 
         System.out.println("\n Printing Inorder");
         bstArray.inOrderView(bstArray.getBstArray(), 0);

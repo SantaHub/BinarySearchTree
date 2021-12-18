@@ -3,10 +3,6 @@ public class BSTArray {
     int[] bstArray = new int[MAX_SIZE];
     int size = 0;
 
-    public static void main(String args[]){
-
-
-    }
 
     public void insert(int data){
         if (size == MAX_SIZE) {
@@ -18,13 +14,24 @@ public class BSTArray {
     }
 
     public int remove() {
-        int returnData = bstArray[size];
+        int returnData = bstArray[size-1];
         size--;
         return returnData;
     }
 
     public void clear() {
         size = 0;
+    }
+
+    public boolean search(int data) {
+        boolean found = false;
+        for(int i = 0 ; i< size; i++ ){
+            if(bstArray[i] == data){
+                found = true;
+                break;
+            }
+        }
+        return found;
     }
 
     public void preOrderView(int[] bstArraySegment, int rootIndex){
@@ -72,6 +79,15 @@ public class BSTArray {
     public int[] getBstArray(){
         return bstArray;
     }
+
+    public String toString(){
+        String stringData = "";
+        for(int i = 0 ; i< size; i++ ){
+            stringData += bstArray[i] + ", ";
+        }
+        return stringData;
+    }
+
 
 }
 
