@@ -89,16 +89,16 @@ public class BSTDoublyLinkedList {
     public void preOrder(DLLNode rootNode){
         if(rootNode == null) {return;}
         System.out.print(rootNode.data);
-        inOrder(rootNode.left);
-        inOrder(rootNode.right);
+        preOrder(rootNode.left);
+        preOrder(rootNode.right);
     }
 
     //postOrder
     //LeRiRo
     public void postOrder(DLLNode rootNode){
         if(rootNode == null) {return;}
-        inOrder(rootNode.left);
-        inOrder(rootNode.right);
+        postOrder(rootNode.left);
+        postOrder(rootNode.right);
         System.out.print(rootNode.data);
     }
 
