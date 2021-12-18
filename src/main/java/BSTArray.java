@@ -9,16 +9,17 @@ public class BSTArray {
         bstArray.insert(2);
         bstArray.insert(3);
         bstArray.insert(7);
-        bstArray.insert(4);
-        bstArray.insert(2);
-        bstArray.insert(3);
-        bstArray.insert(7);
         for (int i : (bstArray.getBstArray())) {
             System.out.print(i);
         }
 
         System.out.println("\n Printing Inorder");
         bstArray.inOrderView(bstArray.getBstArray(), 0);
+        System.out.println("\n Printing Pre Order");
+        bstArray.preOrderView(bstArray.getBstArray(), 0);
+        System.out.println("\n Printing Post Order");
+        bstArray.postOrderView(bstArray.getBstArray(), 0);
+
     }
 
     public void insert(int data){
@@ -40,15 +41,15 @@ public class BSTArray {
         size = 0;
     }
 
-    public void postOrderView(int[] bstArraySegment, int rootIndex){
+    public void preOrderView(int[] bstArraySegment, int rootIndex){
         // Left Right Root
         if(rootIndex == size) {
             return;
-        } else if(bstArraySegment[rootIndex] < bstArraySegment[rootIndex+1]){ // Left
+        } else if(bstArraySegment[rootIndex] > bstArraySegment[rootIndex+1]){ // Left
             System.out.print(bstArraySegment[rootIndex]);
-            postOrderView(bstArraySegment, rootIndex+1);
-        } else if(bstArraySegment[rootIndex] >= bstArraySegment[rootIndex+1] ) { // Right
-            postOrderView(bstArraySegment, rootIndex+1);
+            preOrderView(bstArraySegment, rootIndex+1);
+        } else if(bstArraySegment[rootIndex] <= bstArraySegment[rootIndex+1] ) { // Right
+            preOrderView(bstArraySegment, rootIndex+1);
             System.out.print(bstArraySegment[rootIndex]);
         }
     }
@@ -66,6 +67,19 @@ public class BSTArray {
         } else if(bstArraySegment[rootIndex] <= bstArraySegment[rootIndex + 1]) { // handling right side
             System.out.print(bstArraySegment[rootIndex]);
             inOrderView(bstArraySegment, rootIndex+1);
+        }
+    }
+
+    public void postOrderView(int[] bstArraySegment, int rootIndex){
+        // Left Right Root
+        if(rootIndex == size) {
+            return;
+        } else if(bstArraySegment[rootIndex] > bstArraySegment[rootIndex+1]){ // Left
+            postOrderView(bstArraySegment, rootIndex+1);
+            System.out.print(bstArraySegment[rootIndex]);
+        } else if(bstArraySegment[rootIndex] <= bstArraySegment[rootIndex+1] ) { // Right
+            postOrderView(bstArraySegment, rootIndex+1);
+            System.out.print(bstArraySegment[rootIndex]);
         }
     }
 
