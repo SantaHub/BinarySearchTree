@@ -10,7 +10,7 @@ public class BSTArrayList {
     }
 
     public int remove() {
-        int returnData = bstAL.remove(bstAL.size());
+        int returnData = bstAL.remove(bstAL.size()-1);
         return returnData;
     }
 
@@ -31,7 +31,8 @@ public class BSTArrayList {
 
     public void preOrderView(List<Integer> bstArrayList, int index){
         // Left Right Root
-        if(index == bstArrayList.size()) {
+        if(index == bstArrayList.size()-1) {
+            System.out.print(bstArrayList.get(index));
             return;
         } else if(bstArrayList.get(index) > bstArrayList.get(index+1)){ // Left
             System.out.print(bstArrayList.get(index));
@@ -45,14 +46,15 @@ public class BSTArrayList {
 
     public void inOrderView(List<Integer> bstArrayList, int index){
         // Left Root Right
-        if(index == bstArrayList.size()) {
+        if(index == bstArrayList.size()-1) {
+            System.out.print(bstArrayList.get(index));
             return;
         }
         if (bstArrayList.get(index) > bstArrayList.get(index+1)) { // handling left side
             inOrderView(bstArrayList, index+1);
             System.out.print(bstArrayList.get(index));
 
-        } else if(bstArrayList.get(index) <= bstArrayList.get( +1)) { // handling right side
+        } else if(bstArrayList.get(index) <= bstArrayList.get( index+1)) { // handling right side
             System.out.print(bstArrayList.get(index));
             inOrderView(bstArrayList, index+1);
         }
@@ -60,7 +62,8 @@ public class BSTArrayList {
 
     public void postOrderView(List<Integer> bstArrayList, int index){
         // Left Right Root
-        if(index == bstArrayList.size()) {
+        if(index == bstArrayList.size()-1) {
+            System.out.print(bstArrayList.get(index));
             return;
         } else if(bstArrayList.get(index) > bstArrayList.get(index+1)){ // Left
             postOrderView(bstArrayList, index+1);
