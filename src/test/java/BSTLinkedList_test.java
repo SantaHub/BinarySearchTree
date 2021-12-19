@@ -2,12 +2,12 @@ public class BSTLinkedList_test {
     // somehow my junit aint working. Not wasting time. using objects.
 
     public static void  main(String atg[]) {
-        BSTArrayList_test BSTArrayList_test = new BSTArrayList_test();
-        BSTArrayList_test.test_BSTArrayList();
+        BSTLinkedList_test bstLinkedList_test = new BSTLinkedList_test();
+        bstLinkedList_test.test_BSTLinkedList();
     }
 
-    private void test_BSTArrayList (){
-        BSTArrayList bst = new BSTArrayList();
+    private void test_BSTLinkedList (){
+        BSTLinkedList bst = new BSTLinkedList();
 
         bst.insert(4);
         bst.insert(2);
